@@ -1,283 +1,192 @@
-<div class="row">
-        <!-- [ sample-page ] start -->
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Page Views</h6>
-              <h4 class="mb-3">4,42,236 <span class="badge bg-light-primary border border-primary"><i
-                    class="ti ti-trending-up"></i> 59.3%</span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-primary">35,000</span> this year
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Users</h6>
-              <h4 class="mb-3">78,250 <span class="badge bg-light-success border border-success"><i
-                    class="ti ti-trending-up"></i> 70.5%</span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-success">8,900</span> this year</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Order</h6>
-              <h4 class="mb-3">18,800 <span class="badge bg-light-warning border border-warning"><i
-                    class="ti ti-trending-down"></i> 27.4%</span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-warning">1,943</span> this year</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-3">
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">Total Sales</h6>
-              <h4 class="mb-3">$35,078 <span class="badge bg-light-danger border border-danger"><i
-                    class="ti ti-trending-down"></i> 27.4%</span></h4>
-              <p class="mb-0 text-muted text-sm">You made an extra <span class="text-danger">$20,395</span> this year
-              </p>
-            </div>
-          </div>
-        </div>
+<?php
+// ==== KONEKSI DATABASE ====
+$host = "localhost";
+$user = "root";
+$pass = "";
+$dbname = "websitekatalogbaju";
 
-        <div class="col-md-12 col-xl-8">
-          <div class="d-flex align-items-center justify-content-between mb-3">
-            <h5 class="mb-0">Unique Visitor</h5>
-            <ul class="nav nav-pills justify-content-end mb-0" id="chart-tab-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="chart-tab-home-tab" data-bs-toggle="pill" data-bs-target="#chart-tab-home"
-                  type="button" role="tab" aria-controls="chart-tab-home" aria-selected="true">Month</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="chart-tab-profile-tab" data-bs-toggle="pill"
-                  data-bs-target="#chart-tab-profile" type="button" role="tab" aria-controls="chart-tab-profile"
-                  aria-selected="false">Week</button>
-              </li>
-            </ul>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="tab-content" id="chart-tab-tabContent">
-                <div class="tab-pane" id="chart-tab-home" role="tabpanel" aria-labelledby="chart-tab-home-tab"
-                  tabindex="0">
-                  <div id="visitor-chart-1"></div>
-                </div>
-                <div class="tab-pane show active" id="chart-tab-profile" role="tabpanel"
-                  aria-labelledby="chart-tab-profile-tab" tabindex="0">
-                  <div id="visitor-chart"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-xl-4">
-          <h5 class="mb-3">Income Overview</h5>
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">This Week Statistics</h6>
-              <h3 class="mb-3">$7,650</h3>
-              <div id="income-overview-chart"></div>
-            </div>
-          </div>
-        </div>
+$conn = new mysqli($host, $user, $pass, $dbname);
+if ($conn->connect_error) {
+  die("Koneksi gagal: " . $conn->connect_error);
+}
 
-        <div class="col-md-12 col-xl-8">
-          <h5 class="mb-3">Recent Orders</h5>
-          <div class="card tbl-card">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-hover table-borderless mb-0">
-                  <thead>
-                    <tr>
-                      <th>TRACKING NO.</th>
-                      <th>PRODUCT NAME</th>
-                      <th>TOTAL ORDER</th>
-                      <th>STATUS</th>
-                      <th class="text-end">TOTAL AMOUNT</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Camera Lens</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Laptop</td>
-                      <td>300</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                      </td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Camera Lens</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Laptop</td>
-                      <td>300</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                      </td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Camera Lens</td>
-                      <td>40</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                      </td>
-                      <td class="text-end">$40,570</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Laptop</td>
-                      <td>300</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                      </td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                    <tr>
-                      <td><a href="#" class="text-muted">84564564</a></td>
-                      <td>Mobile</td>
-                      <td>355</td>
-                      <td><span class="d-flex align-items-center gap-2"><i
-                            class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                      <td class="text-end">$180,139</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-12 col-xl-4">
-          <h5 class="mb-3">Analytics Report</h5>
-          <div class="card">
-            <div class="list-group list-group-flush">
-              <a href="#"
-                class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">Company
-                Finance Growth<span class="h5 mb-0">+45.14%</span></a>
-              <a href="#"
-                class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">Company
-                Expenses Ratio<span class="h5 mb-0">0.58%</span></a>
-              <a href="#"
-                class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">Business
-                Risk Cases<span class="h5 mb-0">Low</span></a>
-            </div>
-            <div class="card-body px-2">
-              <div id="analytics-report-chart"></div>
-            </div>
-          </div>
-        </div>
+// ==== HAPUS USER ====
+if (isset($_GET['hapus'])) {
+  $email = $_GET['hapus'];
+  $conn->query("DELETE FROM user WHERE email='$email'");
+  echo "<script>alert('User berhasil dihapus!'); window.location='../admin-page/dashboard.php';</script>";
+}
 
-        <div class="col-md-12 col-xl-8">
-          <h5 class="mb-3">Sales Report</h5>
-          <div class="card">
-            <div class="card-body">
-              <h6 class="mb-2 f-w-400 text-muted">This Week Statistics</h6>
-              <h3 class="mb-0">$7,650</h3>
-              <div id="sales-report-chart"></div>
-            </div>
+// ==== PROSES UPDATE USER ====
+if (isset($_POST['update'])) {
+  $email = $_POST['email'];
+  $nama = $conn->real_escape_string($_POST['nama']);
+  $alamat = $conn->real_escape_string($_POST['alamat']);
+  $no_hp = $conn->real_escape_string($_POST['no_hp']);
+
+  $sql = "UPDATE user SET nama='$nama', alamat='$alamat', no_hp='$no_hp' WHERE email='$email'";
+  if ($conn->query($sql)) {
+    echo "<script>alert('Data user berhasil diupdate!'); window.location='../admin-page/dashboard.php';</script>";
+  } else {
+    echo "<script>alert('Gagal update user');</script>";
+  }
+}
+
+// ==== TAMBAH USER BARU ====
+if (isset($_POST['simpan'])) {
+  $nama = $conn->real_escape_string($_POST['nama']);
+  $email = $conn->real_escape_string($_POST['email']);
+  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+  $alamat = $conn->real_escape_string($_POST['alamat']);
+  $no_hp = $conn->real_escape_string($_POST['no_hp']);
+
+  $cek = $conn->query("SELECT email FROM user WHERE email='$email'");
+  if ($cek->num_rows > 0) {
+    echo "<script>alert('Email sudah terdaftar, gunakan email lain!');</script>";
+  } else {
+    $sql = "INSERT INTO user (nama, email, password, alamat, no_hp) 
+            VALUES ('$nama', '$email', '$password', '$alamat', '$no_hp')";
+    if ($conn->query($sql) === TRUE) {
+    echo "<script>alert('User berhasil ditambahkan!'); window.location='../admin-page/dashboard.php';</script>";
+
+    } else {
+      echo "<script>alert('Gagal menambahkan user: " . addslashes($conn->error) . "');</script>";
+    }
+  }
+}
+
+// ==== AMBIL DATA USER ====
+$result = $conn->query("SELECT * FROM user ORDER BY nama ASC");
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Dashboard Admin - Website Katalog Baju</h2>
+
+  <!-- Form Tambah User -->
+  <div class="card mb-4 shadow-sm">
+    <div class="card-header bg-primary text-white">Tambah User Baru</div>
+    <div class="card-body">
+      <form method="POST">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label>Nama</label>
+            <input type="text" name="nama" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="col-md-4">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label>Alamat</label>
+            <input type="text" name="alamat" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label>No HP</label>
+            <input type="text" name="no_hp" class="form-control" required>
           </div>
         </div>
-        <div class="col-md-12 col-xl-4">
-          <h5 class="mb-3">Transaction History</h5>
-          <div class="card">
-            <div class="list-group list-group-flush">
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-success bg-light-success">
-                      <i class="ti ti-gift f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #002434</h6>
-                    <p class="mb-0 text-muted">Today, 2:00 AM</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">+ $1,430</h6>
-                    <p class="mb-0 text-muted">78%</P>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-primary bg-light-primary">
-                      <i class="ti ti-message-circle f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #984947</h6>
-                    <p class="mb-0 text-muted">5 August, 1:45 PM</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">- $302</h6>
-                    <p class="mb-0 text-muted">8%</P>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <div class="avtar avtar-s rounded-circle text-danger bg-light-danger">
-                      <i class="ti ti-settings f-18"></i>
-                    </div>
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Order #988784</h6>
-                    <p class="mb-0 text-muted">7 hours ago</P>
-                  </div>
-                  <div class="flex-shrink-0 text-end">
-                    <h6 class="mb-1">- $682</h6>
-                    <p class="mb-0 text-muted">16%</P>
-                  </div>
-                </div>
-              </a>
-            </div>
+        <div class="mt-3 text-end">
+          <button type="submit" name="simpan" class="btn btn-success">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Tabel Data User -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-dark text-white">Data User</div>
+    <div class="card-body">
+      <table class="table table-bordered table-hover">
+        <thead class="table-secondary">
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Alamat</th>
+            <th>No HP</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php 
+          $no = 1;
+          if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              echo "<tr>
+                      <td>{$no}</td>
+                      <td>{$row['nama']}</td>
+                      <td>{$row['email']}</td>
+                      <td>{$row['alamat']}</td>
+                      <td>{$row['no_hp']}</td>
+                      <td>
+                        <a href='?edit={$row['email']}' class='btn btn-warning btn-sm'>Edit</a>
+                        <a href='?hapus={$row['email']}' class='btn btn-danger btn-sm' onclick='return confirm(\"Yakin ingin menghapus user ini?\")'>Hapus</a>
+                      </td>
+                    </tr>";
+              $no++;
+            }
+          } else {
+            echo "<tr><td colspan='6' class='text-center'>Belum ada data user</td></tr>";
+          }
+          ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit User -->
+<?php 
+if (isset($_GET['edit'])) {
+  $emailEdit = $_GET['edit'];
+  $dataEdit = $conn->query("SELECT * FROM user WHERE email='$emailEdit'")->fetch_assoc();
+?>
+<div class="modal fade show" style="display:block; background-color:rgba(0,0,0,0.5)">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title">Edit User</h5>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="email" value="<?= $dataEdit['email'] ?>">
+          <div class="mb-3">
+            <label>Nama</label>
+            <input type="text" name="nama" class="form-control" value="<?= $dataEdit['nama'] ?>" required>
+          </div>
+          <div class="mb-3">
+            <label>Alamat</label>
+            <input type="text" name="alamat" class="form-control" value="<?= $dataEdit['alamat'] ?>" required>
+          </div>
+          <div class="mb-3">
+            <label>No HP</label>
+            <input type="text" name="no_hp" class="form-control" value="<?= $dataEdit['no_hp'] ?>" required>
           </div>
         </div>
-      </div>
+        <div class="modal-footer">
+          <a href="" class="btn btn-secondary">Batal</a>
+          <button type="submit" name="update" class="btn btn-warning">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<?php } ?>
+
+</body>
+</html>
+
+<?php $conn->close(); ?>
