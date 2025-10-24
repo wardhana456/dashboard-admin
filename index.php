@@ -47,16 +47,23 @@
         <!-- ========   Change your logo from here   ============ -->
         <!-- <img src="./assets/images/logo-icon.svg" class="img-fluid logo-lg" alt="logo"> -->
       </a>
-      <img src="./assets/images/logo-icon.svg" class="img-fluid logo-lg" alt="logo">
+      <img src="./" class="img-fluid logo-lg" alt="logo">
     </div>
     <div class="navbar-content">
-      <ul class="pc-navbar">
-        <li class="pc-item">
-          <a href="index.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
-            <span class="pc-mtext">Dashboard</span>
-          </a>
-        </li>
+<li class="pc-item">
+<a href="?page=dashboard" class="pc-link">
+<span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+<span class="pc-mtext">Dashboard</span>
+</a>
+</li>
+
+<li class="pc-item">
+<a href="?page=produk" class="pc-link">
+<span class="pc-micon"><i class="ti ti-package"></i></span>
+<span class="pc-mtext">Produk</span>
+</a>
+</li>
+
 
         <li class="pc-item pc-caption">
           <label>UI Components</label>
@@ -321,32 +328,28 @@
 
 
 
-  <!-- [ Main Content ] start -->
+
   <div class="pc-container">
     <div class="pc-content">
-      <!-- [ breadcrumb ] start >
-      <div class="page-header">
-        <div class="page-block">
-          <div class="row align-items-center">
-            <div class="col-md-12">
-              <div class="page-header-title">
-                <h5 class="m-b-10">Home</h5>
-              </div>
-              <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item" aria-current="page">Home</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-       [ breadcrumb ] end -->
-      <!-- [ Main Content ] start -->
       
-        <?php 
-            include "./admin-page/dashboard.php"
-        ?>
+    <?php
+$page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
+
+switch ($page) {
+    case 'dashboard':
+        include "./admin-page/dashboard.php";
+        break;
+    case 'produk':
+        include "./admin-page/produk-admin.php";
+        break;
+    default:
+        include "./admin-page/dashboard.php";
+        break;
+}
+?>
+
+        
+
 
     </div>
   </div>
